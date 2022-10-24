@@ -1,12 +1,33 @@
 console.log("hola");
 
 // 2 A través de un callback asociado al evento DOMContentLoaded de document, escribir en la consola el texto "Contenido del DOM cargado". 
-
+window.addEventListener('DOMContentLoaded', () => {
+    console.log("Contenido del DOM cargado");
+});
 
 // 3 Cargar desde JS el value del textarea con el siguiente contenido:
 // <p>Este contenido <strong>está listo</strong><br>para ser editado y pasarlo abajo.</p>
-
+window.addEventListener('DOMContentLoaded', () => {
+    let textarea = document.getElementById('origen')
+    textarea.value= "<p>Este contenido <strong>está listo</strong><br>para ser editado y pasarlo abajo.</p>"
+    console.log(textarea);
+});
 // 4 Cuando se dispare el evento input del textarea, obtener un HTMLCollection con todos los <input> de la página y cambiar a false su propiedad disabled para que los mismos dejen de estar deshabilitados. Hacer lo mismo con el botón que falta.
+window.addEventListener('DOMContentLoaded', () => {
+    let textarea = document.getElementById('origen')
+    textarea.addEventListener("input", ()=> {
+        // desactivo disabled cada input
+        let inputs = document.getElementsByTagName("input")
+        for (let inp= 0; inp < inputs.length; inp ++) {
+            inputs[inp].disabled = false
+        }
+        // desactivo disabled boton
+        let boton = document.getElementsByTagName("button")
+        console.log(boton);
+        boton[0].disabled = false
+    })
+});
+
 
 // 5 Programar los 5 botones superiores para que cumplan estas funciones:
 // Botón "Reemplazar": reemplaza el contenido del div destino por el contenido del textarea origen.
@@ -22,3 +43,11 @@ console.log("hola");
 // Botón "Convertir a minúsculas": convierte en minúsculas el contenido del div destino.
 
 // 7 Una vez terminados los puntos anteriores, obtener un HTMLCollection con todos los <li> de la página y agregar al inicio de su contenido el texto "[Ok] ".
+
+
+
+
+
+
+
+// hacer fork, modificar, hacer push, entrar a github, aparece "realizr pull requiest"
